@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.sarlavha }}
+{% endblock title %}
+
+
+{% block navbar %}
+    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+    <a href="{% url 'article_list' %}" class="nav-item nav-link active">Blog</a>
+    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+{% endblock navbar %}
+
+
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="container py-5 px-2 bg-primary">
+        <div class="row py-5 px-4">
+            <div class="col-sm-6 text-center text-md-left">
+                <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">Blog Detail</h1>
+            </div>
+            <div class="col-sm-6 text-center text-md-right">
+                <div class="d-inline-flex pt-2">
+                    <h4 class="m-0 text-white"><a class="text-white" href="">Home</a></h4>
+                    <h4 class="m-0 text-white px-2">/</h4>
+                    <h4 class="m-0 text-white">Blog Detail</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Blog Detail Start -->
+    <div class="container py-5 px-2 bg-white">
+        <div class="row px-4">
+            <div class="col-12">
+                {% if object.photo %}
+                    <img class="img-fluid mb-4" src="{{ object.photo.url }}" alt="Should be Image">
+                {% endif %}
+                <h2 class="mb-3 font-weight-bold">{{ object.sarlavha }}</h2>
+                <div class="d-flex">
+                    <p class="mr-3 text-muted"><i class="fa fa-calendar-alt"></i> {{ object.date }} </p>
+                    <p class="mr-3 text-muted"><i class="fa fa-user"></i> {{ object.muallif }} </p>
+                </div>
+                <p> {{ object.body | safe }} </p>
+            </div>
+
+            {% if user == object.muallif %}
+                <div class="col-12 py-4">
+                    <a href="{% url 'article_edit' object.pk %}" class="btn btn-sm btn-outline-primary mb-1">Tahrirlash</a>
+                    <a href="{% url 'article_delete' object.pk %}" class="btn btn-sm btn-outline-primary mb-1">O'chirish</a>
+                </div>
+            {% endif %}
+
+            <div class="col-12 py-4">
+                <div class="btn-group btn-group-lg w-100">
+                    <a href="{% url 'article_list' %}">
+                        <button type="button" class="btn btn-outline-primary"><i class="fa fa-angle-left mr-2"></i> Barcha maqolalar</button>
+                    </a>
+                    <pre>  </pre>
+                    <a href="{% url 'article_new' %}">
+                        <button type="button" class="btn btn-outline-primary">+Yangi post yozish<i class="fa fa-angle ml-2"></i></button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 py-4">
+                <h3 class="mb-4 font-weight-bold">Izohlar</h3>
+                {% if object.izohlar.all %}
+                    {% for izoh in object.izohlar.all %}
+                        <div class="media mb-4">
+                            <img src="img/user.jpg" alt="Image" class="mr-3 mt-1 rounded-circle" style="width:60px;">
+                            <div class="media-body">
+                                <h4> {{ izoh.muallif }} </h4>
+                                <p> {{ izoh }} </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="media-body">
+                                <p> Izohlar mavjud emas </p>
+                            </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+    <!-- Blog Detail End -->
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+{% endblock %}
+
+
+{% block title %}
+    Yangi maqola yozish
+{% endblock title %}
+
+
+{% block content %}
+    <h2> Yangi maqola yozish </h2>
+    <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+        {{ form.media }}
+        {{ form | crispy }}
+        <button type="submit"> Saqlash </button>
+    </form>
+    <br> <br>
+{% endblock content %}

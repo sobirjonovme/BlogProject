@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    About
+{% endblock title%}
+
+
+{% block navbar %}
+    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+    <a href="{% url 'about' %}" class="nav-item nav-link active">About</a>
+    <a href="{% url 'article_list' %}" class="nav-item nav-link">Blog</a>
+    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+{% endblock navbar %}
+
+
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container py-5 px-2 bg-primary">
+        <div class="row py-5 px-4">
+            <div class="col-sm-6 text-center text-md-left">
+                <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">About Me</h1>
+            </div>
+            <div class="col-sm-6 text-center text-md-right">
+                <div class="d-inline-flex pt-2">
+                    <h4 class="m-0 text-white"><a class="text-white" href="{% url 'home' %}">Home</a></h4>
+                    <h4 class="m-0 text-white px-2">/</h4>
+                    <h4 class="m-0 text-white">About Me</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- About Start -->
+    <div class="container bg-white pt-5">
+        <div class="row px-3 pb-5">
+            <div class="col-md-12">
+                <h2 class="mb-4 font-weight-bold">Article about Python Backend starter</h2>
+                <img class="img-fluid float-left w-50 mr-4 mb-3" src="{% static 'img/about.png' %}" alt="Image">
+                <p class="m-0">
+                    My name is Asadbek Sobirjonov.
+                    Boshqa hech narsa hayolga kelmadi :)
+                    <br><br>
+                    Bu yog'i lorem ipsum<br>
+                    Takimata lorem et ut et diam amet dolor gubergren, amet dolor eirmod sea sea invidunt, sed no sed diam ipsum ut et. Sit nonumy est ut consetetur sed, labore dolor ipsum sed ea dolor lorem erat et erat, consetetur sed labore duo voluptua rebum sed gubergren. Dolores nonumy sanctus erat clita stet sed, dolore justo diam eos aliquyam diam. Clita nonumy rebum dolor dolor eos takimata labore diam sed, et voluptua et invidunt sanctus, elitr dolor nonumy tempor dolor elitr lorem no dolor ipsum, ut at gubergren dolor est aliquyam stet, et sea takimata rebum labore erat duo invidunt lorem. At takimata stet diam dolore accusam, kasd at diam aliquyam diam sed est dolor takimata. Sadipscing rebum diam ea et tempor, eirmod et et invidunt voluptua et dolor sit. Labore labore clita et amet sea sit et, est ipsum eirmod amet voluptua dolore, diam eirmod kasd lorem gubergren clita at amet, sea accusam vero amet lorem eos sed diam sit amet, nonumy ipsum et tempor magna dolores aliquyam vero eos ipsum. Ipsum ipsum sadipscing diam aliquyam diam et ipsum eos vero, gubergren magna elitr elitr clita dolor. Aliquyam vero sed sanctus sed dolore sanctus elitr no amet, ea magna ipsum.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+{% endblock content %}

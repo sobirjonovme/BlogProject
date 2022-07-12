@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {% block title %}
+                Asadbek's Blog
+            {% endblock title %}
+        </title>
+
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <!-- Favicon -->
+        <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
+                    <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="{% static 'img/profile1.jpg' %}" alt="Image">
+                    <h2 class="font-weight-bold"> Asadbek's blog </h2>
+                    <p class="mb-4">
+                        I'm Asadbek Sobirjonov. 19 year old Python developer from Uzbekistan
+                    </p>
+                    <div class="d-flex justify-content-center mb-5">
+                        <a class="btn btn-outline-primary mr-2" href="https://twitter.com/ABekSo2?t=Z16q2qYiBdoJ5rjIsw2pjQ&s=09"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="https://www.facebook.com/sobirjonovdev"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="https://t.me/sobirjonov_me"><i class="fab fa-telegram"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="https://www.instagram.com/sobirjonov__a"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    {% if user.is_authenticated %}
+                        <p class="mb-4">
+                            <b><i> {{ user | title }} </i></b>, saytimizga xush kelibsiz!
+                        </p>
+                        <div>
+                            <a href="{% url 'article_new' %}" class="btn btn-sm btn-outline-primary mb-1"> + Yangi Post </a>
+                            <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-primary mb-1"> Saytdan Chiqish </a>
+                        </div>
+
+                    {% else %}
+                        <p class="mb-4">
+                            Siz saytga kirmagansiz!
+                        </p>
+                        <a href="{% url 'login' %}" class="btn btn-lg btn-block btn-primary mt-auto"> Saytga Kirish </a>
+                        <a href="{% url 'signup' %}" class="btn btn-lg btn-block btn-primary mt-auto"> Ro'yxatdan O'tish </a>
+                    {% endif %}
+
+                </div>
+                <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
+                    <i class="fas fa-2x fa-angle-double-right text-primary"></i>
+                </div>
+            </div>
+            <div class="content">
+                <!-- Navbar Start -->
+                <div class="container p-0">
+                    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                        <a href="" class="navbar-brand d-block d-lg-none">Navigation</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav m-auto">
+                                {% block navbar %}
+                                    <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                                    <a href="{% url 'article_list' %}" class="nav-item nav-link">Blog</a>
+                                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                                {% endblock navbar %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Navbar End -->
+
+                {% block content %}
+                {% endblock content %}
+
+
+                <!-- Footer Start -->
+                <div class="container py-4 bg-secondary text-center">
+                    <p class="m-0 text-white">
+                        &copy; <a class="text-white font-weight-bold" href="{% url 'about' %}">Asadbek's Blog</a>. All Rights Reserved. Thanks <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a> for design
+                    </p>
+                </div>
+                <!-- Footer End -->
+            </div>
+        </div>
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="static js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Aloqa
+{% endblock title%}
+
+
+{% block navbar %}
+    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+    <a href="{% url 'article_list' %}" class="nav-item nav-link">Blog</a>
+    <a href="{% url 'contact' %}" class="nav-item nav-link active">Contact</a>
+{% endblock navbar %}
+
+
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container py-5 px-2 bg-primary">
+        <div class="row py-5 px-4">
+            <div class="col-sm-6 text-center text-md-left">
+                <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">Contact Me</h1>
+            </div>
+            <div class="col-sm-6 text-center text-md-right">
+                <div class="d-inline-flex pt-2">
+                    <h4 class="m-0 text-white"><a class="text-white" href="{% url 'home' %}">Home</a></h4>
+                    <h4 class="m-0 text-white px-2">/</h4>
+                    <h4 class="m-0 text-white">Contact Me</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container bg-white pt-5">
+        <div class="row px-3 pb-2">
+            <div class="col-sm-4 text-center mb-3">
+                <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
+                <h4 class="font-weight-bold">Address</h4>
+                <p> 56 Navruz-1, Altyaryk, Fergana, Uzbekistan</p>
+            </div>
+            <div class="col-sm-4 text-center mb-3">
+                <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
+                <h4 class="font-weight-bold">Phone</h4>
+                <p> +998 99 037 6004 </p>
+            </div>
+            <div class="col-sm-4 text-center mb-3">
+                <i class="far fa-2x fa-envelope mb-3 text-primary"></i>
+                <h4 class="font-weight-bold">Email</h4>
+                <p> huntsman6004@gmail.com </p>
+            </div>
+        </div>
+        <div class="col-md-12 pb-5">
+        </div>
+    </div>
+    <!-- Contact End -->
+{% endblock content %}
