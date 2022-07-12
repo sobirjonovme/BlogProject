@@ -8,6 +8,8 @@ django = "*"
 pillow = "*"
 crispy-bootstrap5 = "*"
 django-ckeditor = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
