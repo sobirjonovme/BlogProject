@@ -1,0 +1,6 @@
+Django==4.1.5
+django-ckeditor==6.5.1
+gunicorn==20.1.0
+Pillow==9.4.0
+whitenoise==6.3.0
+environs==9.5.0
