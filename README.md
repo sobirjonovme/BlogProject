@@ -88,4 +88,4 @@ If you would like to contribute to this project, please submit a pull request.
 
 ## Author
 
-- [SobirjonovME](https://github.com/sobirjonovme)
+- [sobirjonovme](https://github.com/sobirjonovme)
