@@ -2,6 +2,8 @@
 
 A blog website built using the Django framework and Python programming language. The website is designed to allow users to post articles and write comments, but only if they are logged in.
 
+Link for the site: [BlogProject](https://blogproject1.pythonanywhere.com/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
